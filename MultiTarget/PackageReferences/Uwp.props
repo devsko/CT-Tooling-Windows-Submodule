@@ -1,7 +1,8 @@
 <Project>
   <ItemGroup>
-    <PackageReference Condition="'$(HasWinUI)' == 'true'" Include="Microsoft.UI.Xaml" Version="2.8.7-ci.240911006" />
-    <PackageReference Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'" Include="Microsoft.Windows.CsWinRT" Version="2.1.3" PrivateAssets="all" />
-    <PackageReference Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'" Include="Microsoft.Web.WebView2" Version="1.0.2783-prerelease" IncludeAssets="none" />
+    <ProjectReference Condition="'$(HasWinUI)' == 'true' and  '$(UseUwp)' == 'true'" Include="D:\repos\devsko\cycloid\Microsoft.UI.Xaml.Projection\Microsoft.UI.Xaml.Projection.csproj" />
+    <PackageReference Condition="'$(HasWinUI)' == 'true' and  '$(UseUwp)' != 'true'" Include="Microsoft.UI.Xaml" Version="2.8.6" />
+    <PackageReference Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'" Include="Microsoft.Windows.CsWinRT" Version="2.1.6" PrivateAssets="all" />
+    <PackageReference Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'" Include="Microsoft.Web.WebView2" Version="1.0.2792.45" IncludeAssets="none" />
   </ItemGroup>
 </Project>
